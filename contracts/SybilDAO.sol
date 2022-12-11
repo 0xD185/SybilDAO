@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 
 contract SybilTreasury {
     address payable sybilDAO;
-    address multisig;
+    address public multisig;
 
     constructor(address _multisig) {
         sybilDAO = payable(msg.sender);
@@ -21,7 +21,7 @@ contract SybilTreasury {
 
     function claim() external {
         require(msg.sender == multisig, "Multisig only");
-        SybilDAO(sybilDAO).claim();
+        SybilDAO(sybilDAO).claimAndRestake();
         payable(multisig).transfer(address(this).balance);
     }
 
@@ -35,12 +35,13 @@ contract SybilDAO is ERC20, Ownable {
     mapping(bytes32 => bool) public authCodesUsed;
     bytes32 public merkleRoot = 0x610e4805fea81e5b7d991c4a298ec475dae1ff4cbb45396b3de0212b087dc94b;
     uint public fee = 3e15; // 0.003 ETH ~ $5
+    uint public publicSalePrice = 8e13; // ~ $0.1
     uint vestedClaimed;
     uint publicSale;
-    uint publicSalePrice = 8e13; // ~ $0.1
-    uint totalShares;
-    mapping(address => uint256) public staked;
-    mapping(address => uint256) public poolShares;
+    uint totalStaked;
+    uint stakingPeriod = 7884000; // 3 months
+    mapping(address => uint) public staked;
+    mapping(address => uint) public lastStakeTime;
     SybilTreasury public treasury;
     uint constant treasuryAllocation = 50_000_000 ether;
     uint constant teamAllocation = 10_000_000 ether;
@@ -72,55 +73,45 @@ contract SybilDAO is ERC20, Ownable {
     }
 
     /* Staking */
-    function stake(uint256 _amount) public {
+    function stake(uint _amount) public {
         require(balanceOf(msg.sender) >= _amount, "Not enough SYB balance");
-        uint pricePerShare;
-        if (totalShares == 0 || address(this).balance == 0) {
-            pricePerShare = 1;
-        } else {
-            pricePerShare = address(this).balance * 1e18 / totalShares;
-        }
-        require(pricePerShare > 0, "pricePerShare too low");
-        uint256 sharesToPurchase = _amount * 1e18 / pricePerShare;
-        totalShares += sharesToPurchase;
         _transfer(msg.sender,address(this),_amount);
-        poolShares[msg.sender] += sharesToPurchase;
         staked[msg.sender] += _amount;
+        totalStaked += _amount;
+        lastStakeTime[msg.sender] = block.timestamp;
     }
 
-    function unstake(uint256 _amount) public {
+    function unstake(uint _amount) public {
         require(_amount > 0, "Amount to unstake too low");
-        uint256 pricePerShare = address(this).balance * 1 ether / totalShares;
-        require(pricePerShare > 0, "pricePerShare too low");
-        uint256 sharesToSell = _amount * 1 ether / pricePerShare;
+        require(block.timestamp > lastStakeTime[msg.sender] + stakingPeriod, "Tokens are locked for staking period");
         require(staked[msg.sender] >= _amount, "Not enough staked balance");
-        totalShares -= sharesToSell;
-        poolShares[msg.sender] -= sharesToSell;
+        uint ethShare = stakingRewardsPending(msg.sender);
         staked[msg.sender] -= _amount;
-        transfer(msg.sender, _amount);
-        payable(msg.sender).transfer(sharesToSell);
+        totalStaked -= _amount;
+        _transfer(address(this), msg.sender, _amount);
+        payable(msg.sender).transfer(ethShare);
     }
 
-    function claim() public {
+    function claimAndRestake() public {
         uint stakingBalance = staked[msg.sender];
         require(stakingBalance > 0, "Not enough staked balance");
         unstake(stakingBalance);
         stake(stakingBalance);
     }
 
-    function stakingRewardsDue(address _user) public view returns (uint256) {
-        uint256 pricePerShare = address(this).balance * 1 ether / totalShares;
-        uint256 stakingBalance = poolShares[_user] * 1 ether / pricePerShare;
-        return stakingBalance;
+    function stakingRewardsPending(address _user) public view returns (uint) {
+        uint ethPerStakedToken = address(this).balance * 1e18 / totalStaked;
+        uint ethShare = staked[_user] * ethPerStakedToken / 1e18;
+        return ethShare;
     }
 
     /* Token Distribution */
     function distributeVestedTokens(address _receiver, uint _amount) external onlyOwner {
         require(vestedClaimed + _amount <= privateFundingAllocation + vestedAllocation, "vested allocation exceeded");
         uint timePassed = block.timestamp - startTimestamp;
-        require(timePassed > cliffPeriod, "no distribution before cliff");
+        require(timePassed > cliffPeriod, "No distribution before cliff");
         uint claimable = (privateFundingAllocation + vestedAllocation) * timePassed / vestingPeriod;
-        require(_amount <= claimable, "amount too high for vesting");
+        require(_amount <= claimable, "Amount too high for vesting");
         _mint(_receiver, _amount);
         vestedClaimed += _amount;
     }
@@ -128,6 +119,7 @@ contract SybilDAO is ERC20, Ownable {
     function vestedClaimable() external view returns (uint) {
         uint timePassed = block.timestamp - startTimestamp;
         uint claimable = (privateFundingAllocation + vestedAllocation) * timePassed / vestingPeriod;
+        if (timePassed <= cliffPeriod) claimable = 0;
         return claimable;
     }
 
@@ -144,7 +136,7 @@ contract SybilDAO is ERC20, Ownable {
         treasury.stake(treasuryAllocation); // runs once
     }
 
-    function bulkAuth(address[] calldata _users) external onlyOwner {
+    function bulkVerify(address[] calldata _users) external onlyOwner {
         for (uint i=0; i<_users.length; i++) {
             check[_users[i]] = true;
         }
