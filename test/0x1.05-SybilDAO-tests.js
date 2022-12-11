@@ -8,8 +8,6 @@ describe('SybilDAO', function () {
   before(async () => {
     [owner,user1] = await ethers.getSigners();
     const networkData = await ethers.provider.getNetwork();
-    await hre.run('compile');
-    // Deploy usEthDao.sol
     const sybilDaoContract = await ethers.getContractFactory('SybilDAO');
     syb = await sybilDaoContract.deploy();
     const treasuryAddress = await syb.treasury();
