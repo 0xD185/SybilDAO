@@ -7,6 +7,8 @@ Contracts are currently deployed on the Ethereum Goerli Testnet.
 
 Main Contract Address: 0x7927BEa1eA84614DCeAECa1710cea8a7DeAa1d25
 
+https://goerli.etherscan.io/address/0x7927BEa1eA84614DCeAECa1710cea8a7DeAa1d25
+
 ### Developer Examples
 
 For developers there are some integration examples at:
