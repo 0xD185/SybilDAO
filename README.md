@@ -45,8 +45,8 @@ contract SybilDeveloperExample {
     address constant sybil = 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db;
  
     function test(address _address) external view returns (bool) {
-        bool verified = ISybil(sybil).check(_address);
-        return verified;
+        require(ISybil(sybil).check(_address),"Visit: https://sybildao.com/#verify");
+        return true;
     }
 }
 
