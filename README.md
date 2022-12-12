@@ -1,6 +1,7 @@
 # SybilDAO
 Zero Knowledge Protocol To Defend DeFi From Sybil Attacks
 
+Verify your address at https://sybildao.com/#verify
 
 A Sybil attack is when an attacker creates multiple fake identities, or wallet addresses, to manipulate a network or protocol. This can be done for a variety of reasons, such as to gain an unfair advantage, or to disrupt the normal functioning of a system. A Sybil attacker uses their fake identities to gain influence over the network which can have serious consequences such as unfair distribution of rewards.
 
