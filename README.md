@@ -3,6 +3,10 @@
 
 Verify your address at https://sybildao.com/#verify
 
+Contracts are currently deployed on the Ethereum Goerli Testnet.
+
+Main Contract Address: 0x7927BEa1eA84614DCeAECa1710cea8a7DeAa1d25
+
 ### Developer Examples
 
 For developers there are some integration examples at:
@@ -27,7 +31,7 @@ interface ISybil {
 }
  
 contract SybilDeveloperExample {
-    address constant sybil = 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db;
+    address constant sybil = 0x7927BEa1eA84614DCeAECa1710cea8a7DeAa1d25;
  
     function test(address _address) external view returns (bool) {
         require(ISybil(sybil).check(_address),"Visit: https://sybildao.com/#verify");
