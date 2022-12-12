@@ -4,30 +4,7 @@ pragma solidity ^0.8.17;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
-
-contract SybilTreasury {
-    address payable sybilDAO;
-    address public multisig;
-
-    constructor(address _multisig) {
-        sybilDAO = payable(msg.sender);
-        multisig = _multisig;
-    }
-
-    function stake(uint _amount) external {
-        require(msg.sender == sybilDAO, "SybilDAO only");
-        SybilDAO(sybilDAO).stake(_amount);
-    }
-
-    function claim() external {
-        require(msg.sender == multisig, "Multisig only");
-        SybilDAO(sybilDAO).claimAndRestake();
-        payable(multisig).transfer(address(this).balance);
-    }
-
-    receive() external payable  {
-    }
-}
+import "./SybilTreasury.sol";
 
 contract SybilDAO is ERC20, Ownable {
 
@@ -52,7 +29,11 @@ contract SybilDAO is ERC20, Ownable {
     uint constant vestedAllocation = 30_000_000 ether;
     uint startTimestamp;
     uint constant vestingPeriod = 208 weeks;
-    uint constant cliffPeriod = 52 weeks;    
+    uint constant cliffPeriod = 52 weeks;
+
+    event Verify(address user);
+    event Stake(address user, uint amount);
+    event Unstake(address user, uint amount, uint ethShare);
 
     constructor() ERC20("SybilDAO", "SYB") {
         treasury = new SybilTreasury(msg.sender);
@@ -70,6 +51,7 @@ contract SybilDAO is ERC20, Ownable {
         bool result = MerkleProof.verify(_merkleProof, merkleRoot, authCode);
         require(result == true, "Verification failed");
         check[_user] = true;
+        emit Verify(_user);
     }
 
     /* Staking */
@@ -79,6 +61,7 @@ contract SybilDAO is ERC20, Ownable {
         staked[msg.sender] += _amount;
         totalStaked += _amount;
         lastStakeTime[msg.sender] = block.timestamp;
+        emit Stake(msg.sender, _amount);
     }
 
     function unstake(uint _amount) public {
@@ -90,6 +73,7 @@ contract SybilDAO is ERC20, Ownable {
         totalStaked -= _amount;
         _transfer(address(this), msg.sender, _amount);
         payable(msg.sender).transfer(ethShare);
+        emit Unstake(msg.sender, _amount, ethShare);
     }
 
     function claimAndRestake() public {
