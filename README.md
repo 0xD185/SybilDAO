@@ -18,13 +18,13 @@ From a end-user perspective they will go from the clients dApp/Platform via a li
 
 This frontend web page uses a number of anti-fraud protections to prevent sybil attacks and bot authentications. These include the following:-
 
-- IP Restrictions - 1 auth/day/IP
+- Cloudflare BOT protection
 - VPN/ToR/Botnet blacklists
-- Cloudflare DDoS protection
-- Client side frontend checks
-- Machine learning risk analysis
-- Custom Captcha
+- Client side analysis
 - Transactional cost + gas fee
+- IP Restrictions
+- hCaptcha integration
+- ML Risk Analysis (TBC)
 
 Once the captcha has been completed the frontend provides a one time authorization code to the clients web browser. This authorization code is part of a zero knowledge proof within our smart contract
 
