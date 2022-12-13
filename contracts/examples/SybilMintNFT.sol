@@ -16,6 +16,7 @@ interface ISybil {
 contract SybilMintNFT is ERC721 {
     address constant sybil = 0x7927BEa1eA84614DCeAECa1710cea8a7DeAa1d25;
     uint256 public tokenId;
+    mapping (address => bool) public claimed;
 
     constructor() ERC721("A SAFE MINT NFT", "NFT") {
     }
@@ -29,6 +30,8 @@ contract SybilMintNFT is ERC721 {
         require(ISybil(sybil).check(msg.sender),"Visit: https://sybildao.com/#verify");
         require(tokenId < 1000, "All 1000 tokens have been minted");
         require(balanceOf(msg.sender) == 0, "You already have an NFT");
+        require(claimed[msg.sender] == false, "Already claimed");
+        claimed[msg.sender] = true;
         _safeMint(msg.sender, tokenId);
         tokenId = tokenId + 1;
     }

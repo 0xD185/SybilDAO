@@ -22,6 +22,7 @@ contract SafeAirdrop is ERC20 {
     function airdrop() public {
         require(ISybil(sybil).check(msg.sender),"Visit: https://sybildao.com/#verify");
         require(claimed[msg.sender] == false, "Already claimed");
+        claimed[msg.sender] = true;
         _mint(msg.sender, 100 * 10 ** decimals());
     }
 }
