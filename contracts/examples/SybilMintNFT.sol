@@ -21,7 +21,7 @@ contract SybilMintNFT is ERC721 {
     }
 
     function tokenURI(uint256) override public pure returns (string memory) {
-        string memory json = Base64.encode(bytes(string(abi.encodePacked('{"name": "SybilDAO", "description": "An example NFT from SybilDAO", "image": "https://sybildao.com/icon.png"}'))));
+        string memory json = Base64.encode(bytes(string(abi.encodePacked('{"name": "SybilDAO", "description": "An example NFT from SybilDAO", "image": "https://sybildao.com/img/icon.png"}'))));
         return string(abi.encodePacked('data:application/json;base64,', json));
     }
 
