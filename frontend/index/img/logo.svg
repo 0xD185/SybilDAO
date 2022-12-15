@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1757.959"
+   height="391.09299"
+   viewBox="0 0 465.12665 103.47669"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.32346812"
+     inkscape:cx="882.62176"
+     inkscape:cy="666.21713"
+     inkscape:window-width="1649"
+     inkscape:window-height="1259"
+     inkscape:window-x="3698"
+     inkscape:window-y="352"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient902"
+       id="radialGradient904"
+       cx="142.87537"
+       cy="142.87474"
+       fx="142.87537"
+       fy="142.87474"
+       r="55.153522"
+       gradientTransform="matrix(0.84508211,0,0,0.84854257,-67.075232,-8.63806)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient902">
+      <stop
+         style="stop-color:#808080;stop-opacity:1;"
+         offset="0"
+         id="stop898" />
+      <stop
+         style="stop-color:#808080;stop-opacity:0;"
+         offset="1"
+         id="stop900" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient902"
+       id="radialGradient344"
+       cx="142.87537"
+       cy="142.87474"
+       fx="142.87537"
+       fy="142.87474"
+       r="55.153522"
+       gradientTransform="matrix(1.381207,0,0,1.3868629,-54.465085,-55.272938)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-7.0570091,-65.796789)">
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:129.473px;line-height:1.5;font-family:Poppins;-inkscape-font-specification:'Poppins Bold';fill:url(#radialGradient904);fill-opacity:1;stroke-width:0.764593;stroke-linecap:round;stroke-linejoin:round"
+       x="-11.023694"
+       y="159.36127"
+       id="text233-9"><tspan
+         sodipodi:role="line"
+         id="tspan231-5"
+         style="font-size:129.473px;fill:url(#radialGradient904);fill-opacity:1;stroke-width:0.764593"
+         x="-11.023694"
+         y="159.36127">✤</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:107.161px;line-height:1.5;font-family:Poppins;-inkscape-font-specification:'Poppins Bold';opacity:0.426966;fill:#808080;stroke-width:0.632836;stroke-linecap:round;stroke-linejoin:round"
+       x="0.12407004"
+       y="151.30238"
+       id="text233"><tspan
+         sodipodi:role="line"
+         id="tspan231"
+         style="font-size:107.161px;stroke-width:0.632836"
+         x="0.12407004"
+         y="151.30238">✤</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:97.9334px;line-height:1.5;font-family:Poppins;-inkscape-font-specification:'Poppins Bold';text-align:center;text-anchor:middle;fill:#808080;fill-opacity:0.662745;stroke:#4d4d4d;stroke-width:9.63911;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:9.98605, 19.9722"
+       x="295.7966"
+       y="147.63028"
+       id="text629"><tspan
+         sodipodi:role="line"
+         id="tspan627"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:97.9334px;font-family:Dosis;-inkscape-font-specification:'Dosis Bold';fill:#808080;fill-opacity:0.662745;stroke:none;stroke-width:9.63911"
+         x="295.7966"
+         y="147.63028">SybilDAO</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SybilDAO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet"> 
+    <style>
+      body { font-family: Dosis, sans-serif; color: #111; text-align: center;  }
+      button { width: 270px; height: 50px; border: 1px solid #AAA; border-radius: 5px; background: #FFFFFFAA; color: #111; cursor: pointer; margin: 5px; }
+      button:hover { background: #FFF; }
+      a { color: #444; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .inner-page a { text-decoration: underline; }
+      .inner-page a:hover { font-weight: bold; }
+      </style>
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  </head>
+  <body>
+ 
+    <div style="text-align: center; border: 2px solid #AAA; border-radius: 15px; background: #EEE; width: 316px; height: 496px">
+      <div style="margin: 20px auto;">
+        <a href="https://sybildao.com" target="_blank">
+          <div style="font-size: 1.8em;">✤ SybilDAO</div>
+          <div style="font-size: 0.62em;">Defending DeFi From Sybil Attacks</div>
+        </a>
+      </div>
+      <div id="verify" class="inner-page" style="background: #F7F7F7; width: 310px; margin: 10px auto; border: 2px solid #AAA; border-radius: 4px; text-align: center;">
+        <div style=" font-size: 0.8em; margin: 10px 0;"><span id="verify-top">COMPLETE CAPTCHA &amp; SIGN</span></div>
+        <div class="h-captcha" data-sitekey="1504afb4-4b8f-4af2-9018-7002bcb41dbc"></div>
+        <div style="margin: 10px 0;"><button id="sign">SIGN TO VERIFY</button></div>
+        <div style="font-size: 0.8em; width: 100%; text-align: center; margin-bottom: 5px;" id="verify-msg">DEFENDING DEFI FROM SYBIL ATTACKS</div>
+      </div>
+      <div style="text-align: left; padding: 10px; color: #666;">
+        <p>Complete the captcha and sign the transaction to verify your account. This helps prevent bots and makes web3 fairer for everyone</p>
+        <p style="text-align: center; margin-top: 5px;">For further instructions visit<br /><a href="https://sybildao.com" target="_blank">https://sybildao.com</a></p>
+      </div>
+    </div>
+     
+    
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <script>
+      console.log('SybilDAO Embed v1.2.1');
+
+      const provider = new ethers.providers.Web3Provider(window.ethereum,'any');
+      const e = { };
+      const abi = [
+        "function check(address) view returns (bool)",
+        "function verify(address, bytes32, bytes32[] calldata) external payable",
+      ];
+      const airdropABI = [
+        "function airdrop() external",
+        "function checkEligible(address) external view returns(bool)"
+      ];
+      const contractAddress = '0x7927BEa1eA84614DCeAECa1710cea8a7DeAa1d25';
+      const airdropAddress = '0xb187e0dc36c4d8B17c393f26F6e533b14aAc7CA3';
+
+      const connect = async () => {
+        await provider.send("eth_requestAccounts", []);
+        e.signer = provider.getSigner()
+        e.syb = new ethers.Contract(contractAddress, abi, e.signer);
+        e.airdrop = new ethers.Contract(airdropAddress, airdropABI, e.signer);
+        e.userAddress = await e.signer.getAddress();
+        const { chainId } = await provider.getNetwork()
+        if (chainId !== 5) {
+          await window.ethereum.request({
+            method: "wallet_switchEthereumChain",
+            params: [{ chainId: "0x5" }],
+          });
+        }
+        window.ethereum.on('accountsChanged', () => { connect() });
+        window.ethereum.on('network', () => { connect() });
+      }
+
+      document.getElementById('sign').onclick = async () => {
+        if (!e.syb) await connect();
+        const hCaptchaResponse = hcaptcha.getResponse();
+        if (!hCaptchaResponse) {
+          alert('Complete Captcha First');
+          return false;
+        }
+        document.getElementById('verify-msg').innerHTML = 'CHECKING';
+        const mlData = await collectMLData();
+        const authQuery = await fetch('https://sybildao.com/api-v1/', {  
+            method: 'POST',  
+            body: JSON.stringify({ hCaptchaResponse, mlData })
+        });
+        let authResponse = await authQuery.json();
+        console.log(authResponse);
+        if (!authResponse || !authResponse.length || !authResponse.length == 2) {
+          let errorMsg = 'Captcha Error, Please refresh page and try again';
+          if (authResponse.error) errorMsg = errorMsg+"\n\n"+authResponse.error
+          alert(errorMsg);
+          return false;
+        }
+        const weiAmount = ethers.utils.parseEther('0.003');
+        const authCode = authResponse.shift(); // authCode is arr[0]
+        const proof = authResponse;
+        const tx = await e.syb.verify(e.userAddress, authCode, proof, {value : weiAmount});
+        document.getElementById('sign').innerHTML = 'PROCESSING...';
+        document.getElementById('verify-msg').innerHTML = 'PLEASE WAIT';
+        const receipt = await tx.wait();
+        document.getElementById('verify-top').innerHTML = 'WELCOME TO SYBILDAO';
+        document.getElementById('sign').innerHTML = 'COMPLETED';
+        document.getElementById('verify-msg').innerHTML = 'YOUR ADDRESS HAS BEEN VERIFIED';
+      }
+
+      const collectMLData = async () => {
+        const tensor = [];
+        if (navigator.userAgentData.mobile) {
+          tensor.push(1);
+        } else {
+          tensor.push(0);
+        }
+        tensor.push(window.rawMLData.mouseMove);
+        tensor.push(window.rawMLData.mouseOver);
+        tensor.push(window.rawMLData.scroll);
+        tensor.push(window.rawMLData.keyDown);
+        tensor.push(window.rawMLData.touchMove);
+        tensor.push(window.screen.height);
+        tensor.push(window.screen.width);   
+        tensor.push(window.innerHeight);
+        tensor.push(window.innerWidth);
+        return tensor.join(',');
+      }
+
+      const recordMLData = async () => {
+        window.rawMLData = {
+          mouseMove: 0,
+          mouseOver: 0,
+          scroll: 0,
+          keyDown: 0,
+          touchMove: 0,
+        }
+        document.onmousemove = (e) => {
+          window.rawMLData.mouseMove += 1;
+        }
+        document.onmouseover = (e) => {
+          window.rawMLData.mouseOver += 1;
+        }
+        document.onscroll = (e) => {
+          window.rawMLData.scroll += 1;
+        }
+        document.onkeydown = (e) => {
+          window.rawMLData.keyDown += 1;
+        }
+        document.ontouchmove = (e) => {
+          window.rawMLData.touchMove += 1;
+        }
+      }
+      recordMLData();
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SybilDAO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet"> 
+
+    <!-- CSS -->
+    <style>
+      html { background: #F7F7F7; margin: 0px; padding: 0px; width: 100%; height: 90%; }
+      body { font-family: Dosis, sans-serif; background: #F7F7F7; color: #111; margin: 0px; padding: 0px; width: 100%; height: 100%; }
+      button { width: 270px; height: 50px; border: 1px solid #AAA; border-radius: 5px; background: #FFFFFFAA; color: #111; cursor: pointer; margin: 5px; }
+      button:hover { background: #FFF; }
+      a { color: #444; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .inner-page a { text-decoration: underline; }
+      .inner-page a:hover { font-weight: bold; }
+      table { width: 100%; }
+      table td { background: #CCCCCC55; padding: 5px; width: 50%; }
+      hr { height:1px; border:none; color:#CCC; background-color:#CCC; width:60%; text-align:center; margin: 0 auto; margin: 40px auto; }
+      .embed-youtube { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; }
+      .embed-youtube iframe, .embed-youtube object, .embed-youtube embed { border: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+      #spinner { color: #00000011; font-size: 1.6em; animation-name: spin; animation-duration: 30000ms; animation-iteration-count: infinite; animation-timing-function: linear; display: inline-block; }
+      @keyframes spin { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
+    </style>
+
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@sybdao" />
+    <meta name="twitter:title" content="SybilDAO | Defending DeFi From Sybil Attacks" />
+    <meta name="twitter:description" content="Smart contract protection from bot networks" />
+    <meta name="twitter:image" content="https://sybildao.com/img/card.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="SybilDAO | Defending DeFi From Sybil Attacks" />
+    <meta property="og:description" content="Smart contract protection from bot networks" />
+    <meta property="og:url" content="https://sybildao.com/" />
+    <meta property="og:image" content="https://sybildao.com/img/card.png" />
+  </head>
+  
+  <body>
+    <div style="margin: 2%; min-height: 90%; border: 4px solid #CCC; border-radius: 5px; background: url(img/bkg.png?v=1.2.1) no-repeat center center fixed; -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; box-shadow: 0px 0px 15px 5px #ccc;">
+      <div>
+        <div style="font-size: 0.6em; color: #888; text-align: right; width: 100%; padding-top: 10px;">Deployed On Ethereum Goerli Testnet - Mainnet Launch 2023&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <a href="/">
+          <div style="font-size: 1.8em; margin: 10px 10px 10px 40px;">✤ SybilDAO</div>
+          <div style="font-size: 0.62em; margin: 0px 10px 10px 40px;">Defending DeFi From Sybil Attacks</div>
+        </a>
+        <div style="text-align: right; line-height: 2.6;">
+          <a href="https://github.com/0xD185/SybilDAO" target="_blank" style="margin-right: 40px;" class="reload-link">GITHUB</a>
+          <a href="https://medium.com/@SybilDAO" target="_blank" style="margin-right: 40px;" class="reload-link">BLOG</a>
+          <a href="#syb" style="margin-right: 40px;" class="reload-link">SYB</a>
+          <a href="#socials" style="margin-right: 40px;" class="reload-link">SOCIALS</a>
+          <a href="#airdrop" style="margin-right: 40px;" class="reload-link">AIRDROP</a>
+          <a href="#verify" style="margin-right: 40px;" class="reload-link">VERIFY</a>
+          <a href="#staking" style="margin-right: 40px" class="reload-link">STAKING</a>
+        </div>
+
+        <!-- HOMEPAGE -->
+        <div id="page" style="overflow: auto;">
+          <div id="home" class="inner-page" style="padding: 1% 5% 1% 5%; max-width: 800px; margin: auto;">
+            <div style="min-height: 600px; width: 100%; display: flex; flex-direction: column; flex-wrap: wrap; align-items: center; justify-content: center;">
+              <div style="flex: 1; text-align: center; margin: 15% 0px;">
+                <div style="font-size: 2.6em;"><div id="spinner">✤</div> <span style="position: relative; top: -13px;">SybilDAO</span></div>
+                <div style="font-size: 0.9em; margin-top: 10px;">Zero Knowledge Protocol To Defend DeFi From Sybil Attacks</div>
+                <div class="embed-youtube" style="margin-top: 5%;">
+                  <iframe src="https://www.youtube.com/embed/axEWKkdqEHo" width="600" height="400"></iframe>
+                </div>
+                <div style="margin-top: 50px; text-align: center;">
+                  <a href="/#verify" class="reload-link"><button>VERIFY ADDRESS</button></a>
+                  <a href="/#more" class="reload-link"><button>LEARN MORE</button></a>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <h2 id="more">WHAT IS A SYBIL ATTACK?</h2>
+            <p>A Sybil attack is when an attacker creates multiple fake identities, or wallet addresses, to manipulate a network or protocol. This can be done for a variety of reasons, such as to gain an unfair advantage, or to disrupt the normal functioning of a system. A Sybil attacker uses their fake identities to gain influence over the network which can have serious consequences such as unfair distribution of rewards.</p>
+            <p>Sybil attacks are widespread in DeFi particularly for:
+              <img src="img/castle.png?v=1.2.1" style="width: 200px; max-width: 50%; float: right; border-radius: 15px;" />
+              <ul>
+                <li>Airdrops</li>
+                <li>Bounty Campaigns</li>
+                <li>Community competitions</li>
+                <li>Whitelistings & Token Generation Events</li>
+                <li> Voting systems</li>
+              </ul>
+            </p>
+            <hr>
+            <h2>HOW DOES SYBIL PROTOCOL WORK?</h2>
+            <p>SybilDAO solves the problem of mass sybil attacks in DeFi in a streamlined way that is simple for blockchain developers to implement and has a great UX for end users.</p>
+            <img style="max-width: 100%;" src="img/explainer.png?v=1.2.1" />
+            <p>From a end-user perspective they will go from the clients dApp/Platform via a link which opens in a new tab to <a href="/#verify" class="reload-link">https://sybilDAO.com/#verify</a></p>
+            <p>This frontend web page uses a number of anti-fraud protections to prevent sybil attacks and bot authentications. These include the following:-
+              <ul>
+                <li>Cloudflare BOT protection</li>
+                <li>VPN/ToR/Botnet blacklists</li>
+                <li>Client side analysis</li>
+                <li>Transactional cost + gas fee</li>
+                <li>IP Restrictions</li>
+                <li>hCaptcha integration</li>
+                <li>ML Risk Analysis (TBC)</li>
+              </ul>
+            </p>
+            <p>Once the captcha has been completed the frontend provides a one time authorization code to the clients web browser. This authorization code is part of a zero knowledge proof within our smart contract</p>
+            <p>The user can then sign a transaction which charges a small fee + transaction cost in the native currency for that chain. This will pass the authorization code (ZK–Proof) to the smart contract which registers the wallet address as a permanently verified address.</p>
+            <hr>
+            <h2>HOW TO INTEGRATE?</h2>
+            <h3>SMART CONTRACTS</h3>
+            <p>3rd party DeFi protocols can look up on-chain verified addresses from within their smart contract and get a true/false boolean response. Here is a simple smart contract interface to check if a wallet address has been verified.</p>
+            <div style="overflow: auto;"><pre><code>
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.17;
+  
+interface ISybil {
+    function check(address) external view returns (bool);
+}
+  
+contract SybilDeveloperExample {
+    address constant sybil = 0x7927BEa1eA84614DCeAECa1710cea8a7DeAa1d25;
+  
+    function test(address _address) external view returns (bool) {
+        require(ISybil(sybil).check(_address),"Visit: https://sybildao.com/#verify");
+        return true;
+    }
+}
+            </code></pre></div>
+            <p>There are more example integrations including ERC20 and ERC721 tokens here: <a href="https://github.com/0xD185/SybilDAO/tree/main/contracts/examples" target="_blank">contracts/examples</a></p>
+            <h3>WEB3 FRONTENDS</h3>
+            <p>There are two options to get users to verify prior to carrying out a function that requires Sybil Protocol protection.</p>
+            <p>The first option is to direct them to a simple link, this can be given out over social media or linked to from a frontend application: <a href="https://sybildao.com/#verify" target="_blank">https://sybildao.com/#verify</a></p>
+            <p>The second option is to embed the iframe widget directly into your dApp or website.</p>
+            <div style="overflow: auto;"><pre><code>&lt;iframe width=&quot;320&quot; height=&quot;500&quot; src=&quot;https://sybildao.com/embed.html&quot; title=&quot;SybilDAO DeFi Defender&quot; frameBorder=&quot;0&quot; scrolling=&quot;no&quot;  marginwidth=&quot;0&quot; marginheight=&quot;0&quot; hspace=&quot;0&quot; vspace=&quot;0&quot;&gt;&lt;/iframe&gt;</code></pre></div>
+            <p>This code renders a 320px x 500px iframe like the one below</p>
+            <div style="width: 100%; text-align: center;">
+              <iframe width="320" height="500" src="https://sybildao.com/embed.html" title="SybilDAO DeFi Defender" frameBorder="0" scrolling="no"  marginwidth="0" marginheight="0" hspace="0" vspace="0"></iframe>
+            </div>
+            <hr>
+            <h2>PARTNERS</h2>
+            <p>Whitelisted addresses are immutable and verifiable from any smart contract, these can be used across various DeFi partner promotions and campaigns.</p>
+            <p>SybilDAO adds value through exposure to our community. Once someone is verified they are part of the Sybil Network and can participate in any SybilDAO partner promotions without reverifying. There is potential for SybilDAO to build a large audience which will hold value in itself.</p>
+            <img src="img/office.png?v=1.2.1" style="width: 200px; max-width: 50%; float: right; border-radius: 15px;" />
+            <p>Partners are provided promotional exposure via:-
+              <ol>
+                <li>Partnership and promotion announcements on website</li>
+                <li>Social media channels - Twitter & Discord primarily</li>
+                <li>Video content on YouTube, TikTok & Instagram</li>
+              </ol>
+            </p>
+            <p>SybilDAO can also offer pre-built promotional campaigns such as sybil attack resistant NFT drops where a partner just needs to provide an image for the NFT.</p>
+            <p>By partnering with SybilDAO, DeFi teams get a win/win situation where we can grow our communities together through a valuable service that protects against bot networks.</p>
+            <p>BizDev team can outreach to DeFi founders to sell cross-promotional activities even if their core protocol has no requirement for sybil resistance. This provides a large potential customer base with an optimizable sales funnel.</p>
+          </div>
+
+
+          <!-- SYB -->
+          <div id="syb" class="inner-page" style="padding: 1% 5% 1% 5%; max-width: 800px; margin: auto;">
+            <h1><span style="background: #333; color: #FFF; border-radius: 100px; padding: 0px 8px 2px 8px; box-shadow: 0px 0px 2px 3px #ccc;">✤</span> THE SYB TOKEN</h1>
+            <p>SYB is the governance token for the SybilDAO. The draft tokenomics are as follows:-</p>
+            <table>
+              <tr><td>Initial supply</td><td style="text-align: right;">100,000,000 SYB</td></tr>
+              <tr><td>Max supply</td><td style="text-align: right;">150,000,000 SYB</td></tr>
+            </table>
+            <p>The initial distribution is as follows:-</p>
+            <table>
+              <tr><td>Treasury (Locked)</td><td style="text-align: right;">50,000,000 SYB</td></tr>
+              <tr><td>Public Sale</td><td style="text-align: right;">20,000,000 SYB</td></tr>
+              <tr><td>Team</td><td style="text-align: right;">10,000,000 SYB</td></tr>
+              <tr><td>Liquidity</td><td style="text-align: right;">10,000,000 SYB</td></tr>
+              <tr><td>Partners</td><td style="text-align: right;">5,000,000 SYB</td></tr>
+              <tr><td>User Airdrop</td><td style="text-align: right;">5,000,000 SYB</td></tr>
+            </table>
+            <p>The remaining 50,000,000 SYB vested:-</p>
+            <table>
+              <tr><td>Private round</td><td style="text-align: right;">20,000,000 SYB</td></tr>
+              <tr><td>Founders</td><td style="text-align: right;">20,000,000 SYB</td></tr>
+              <tr><td>Team</td><td style="text-align: right;">10,000,000 SYB</td></tr>
+            </table>
+            <p>Private funding round will be via SAFT and then distributed according to vesting period.</p>
+            <p>When a user completes the transaction to verify their wallet a fee is added to the transaction/gas. 100% of fees generated by the protocol are distributed back to stakers of the SYB token on Ethereum mainnet. Fees from layer 2's are bridged back and added to the pool on mainnet. Fee revenues for staked SYB are claimable in ETH <a href="https://twitter.com/search?q=%23realyield" target="_blank">#RealYield</a></p>
+            <p>The treasury fund allocation of SYB tokens is in a restricted wallet that can never be sold or transferred. This guarantees that a minimum of 50% of the fees initially and 33% after the vesting period will always go to the treasury to ensure continued financing for the project.</p>
+            <p>In due course the Sybil Protocol will reach a tipping point where it becomes the default tool for preventing sybil attacks in DeFi.</p>
+          </div>
+
+
+          <!-- SOCIALS -->
+          <div id="socials" class="inner-page" style="padding: 1% 5% 1% 5%; max-width: 800px; margin: auto; text-align: center;">
+            <h1>CONNECT WITH SYBILDAO</h1>
+            <div style="background: #FFFFFF55; border-radius: 30px; padding: 5%; margin-top: 5%; font-size: 1.2em; box-shadow: 0px 0px 15px 5px #ccc;">
+              <p><span style="font-weight: bold;">Twitter:</span> <a href="https://twitter.com/SybDAO" target="_blank">https://twitter.com/SybDAO</a></p>
+              <p><span style="font-weight: bold;">Discord:</span> <a href="https://discord.gg/fqRBs7p5fr" target="_blank">https://discord.gg/fqRBs7p5fr</a></p>
+              <p><span style="font-weight: bold;">Medium:</span> <a href="https://medium.com/@SybilDAO" target="_blank">https://medium.com/@SybilDAO</a></p>
+              <p><span style="font-weight: bold;">Newsletter:</span> <a href="https://sybildao.substack.com" target="_blank">https://sybildao.substack.com</a></p>
+              <p><span style="font-weight: bold;">Github:</span> <a href="https://github.com/0xD185/SybilDAO" target="_blank">https://github.com/0xD185/SybilDAO</a></p>
+              <iframe src="https://sybildao.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+            </div>
+          </div>
+          
+
+          <!-- AIRDROP -->
+          <div id="airdrop" class="inner-page" style="padding: 1% 5% 1% 5%; max-width: 800px; margin: auto; text-align: center;">
+            <h1>AIRDROP</h1>
+            <h2>CLAIM YOUR SYB ALLOCATION</h2>
+            <p>
+              Note this is an <span style="font-style: italic;">Ethereum Goerli Testnet</span> airdrop (<a href="https://medium.com/@sybildao/how-to-use-goerli-testnet-5b3cd76ed40f" target="_blank">instructions here</a>) but...<br />
+              <span style="font-weight: bold;">Spoiler Alert</span> we may be doing something for our early adopter community on mainnet in due course.<br />
+              Follow us on <a href="https://twitter.com/SybDAO" target="_blank">Twitter</a> &amp; join the <a href="https://discord.gg/fqRBs7p5fr" target="_blank">Discord</a> community to ensure eligibility.
+            </p>
+            <p>To receive your airdrop you need to first verify your wallet here: <a href="/#verify" class="reload-link">https://sybildao.com/#verify</a></p>
+            <div id="airdrop-box" style="background: #F7F7F7; width: 320px; border: 2px solid #AAA; border-radius: 4px; margin: 50px auto; text-align: center; box-shadow: 0px 0px 15px 5px #ccc;">
+              <div style="margin: 10px 0;">
+                <div style="margin: 10px 0;" id="airdrop-address">CONNECT AND CHECK ELIGIBILITY</div>
+                <div style="margin: 10px 0;"><button id="airdrop-check">CHECK ADDRESS</button></div>
+              </div>
+              <div style="margin: 10px 0;">
+                <div style="margin: 10px 0;" id="airdrop-result">CLAIM 100 SYB TOKENS</div>
+                <div style="margin: 10px 0;"><button id="airdrop-claim">CLAIM AIRDROP</button></div>
+              </div>
+            </div>
+            <p>The <a href="https://github.com/0xD185/SybilDAO/blob/main/contracts/examples/SybAirdrop.sol" target="_blank">SybAirdrop smart contracts</a> are a good example of how to integrate the Sybil Protocol.</p>
+            <h2>BOUNTY FOR BOTS</h2>
+            <p>We need training data for our machine learning algorithms.</p>
+            <p>If you can break our bot protection systems to gain 100,000 SYB tokens we will award a bounty subject to the following terms:</p>
+            <ul style="text-align: left; margin-top: 20px;">
+              <li>BOUNTY - $300 USDC/USDT on Ethereum mainnet</li>
+              <li>Requirements:
+                <ul>
+                  <li>One bounty per person/botnet, system is yet to be broken so we wont pay out 10 bounties in the same week</li>
+                  <li>You share the code for the bot so we can reverse engineer it to improve our systems</li>
+                  <li>No damage is done to the system or user experience, go slow and don't DDoS the platform</li>
+                  <li>Inclusion in the hall of fame is optional, let us know if you want a social media account on there</li>
+                  <li>Contact the team via <a href="https://discord.gg/fqRBs7p5fr">discord</a>/<a href="https://twitter.com/SybDAO">twitter</a> and we will get back to you ASAP</li>
+                </ul>
+              </li>
+            </ul>
+            <h3>Hall of Fame</h3>
+            <p>To date noone has broken our bot protection systems to claim the bounty</p>
+            <table>
+              <tr><th>Date</th><th>User/Anon</th><th>Details</th></tr>
+              <tr><td style="width: 25%;">&nbsp;</td><td style="width: 25%"></td><td></td></tr>
+              <tr><td style="width: 25%;">&nbsp;</td><td style="width: 25%"></td><td></td></tr>
+              <tr><td style="width: 25%;">&nbsp;</td><td style="width: 25%"></td><td></td></tr>
+              <tr><td style="width: 25%;">&nbsp;</td><td style="width: 25%"></td><td></td></tr>
+              <tr><td style="width: 25%;">&nbsp;</td><td style="width: 25%"></td><td></td></tr>
+            </table>
+          </div>
+
+
+          <!-- VERIFY -->
+          <div id="verify" class="inner-page" style="display: none; background: #F7F7F7; width: 320px; border: 2px solid #AAA; border-radius: 4px; margin: 10% auto; text-align: center; box-shadow: 0px 0px 15px 5px #ccc;">
+              <div style=" font-size: 0.8em; margin: 10px 0;"><span id="verify-top">COMPLETE CAPTCHA &amp; SIGN</span></div>
+              <div class="h-captcha" data-sitekey="1504afb4-4b8f-4af2-9018-7002bcb41dbc"></div>
+              <div style="margin: 10px 0;"><button id="sign">SIGN TO VERIFY</button></div>
+              <div style="font-size: 0.8em; width: 100%; text-align: center; margin-bottom: 5px;" id="verify-msg">DEFENDING DEFI FROM SYBIL ATTACKS</div>
+          </div>
+
+          <!-- STAKING -->
+          <div id="staking" class="inner-page" style="padding: 1% 5% 1% 5%; max-width: 500px; margin: auto; text-align: center; display: none; background: #F7F7F7; width: 320px; border: 2px solid #AAA; border-radius: 4px; margin-top: 2em; box-shadow: 0px 0px 15px 5px #ccc;">
+            <h1><span style="background: #333; color: #FFF; border-radius: 100px; padding: 0px 8px 2px 8px; box-shadow: 0px 0px 2px 3px #ccc;">✤</span> STAKING</h1>
+            <table style="margin-top: 2em;">
+              <tr>
+                <th>SYB</th>
+                <th>Balance</th>
+              </tr>
+              <tr>
+                <td style="width: 50%; padding: 0.5em; font-size: 15px;">&nbsp;Amount in wallet</td>
+                <td>0</td>
+              </tr>
+       
+            </table>
+            <table style="margin-top: 1em;">
+              <tr>
+                <th>STAKED</th>
+                <th>Balance</th>
+              </tr>
+              <tr>
+                <td style="width: 50%; padding: 0.5em; font-size: 15px;">&nbsp;Amount staked</td>
+                <td>0</td>
+              </tr>
+            </table>
+            <table style="margin-top: 1em;">
+              <th>Max SYB</th>
+            </table>
+              <div style="width: 40%; height: 30%; margin: 0 auto;  background: #CCCCCC55; padding: 5px; width: 50%; color: #111">0</div>
+              <button style="max-width: 50%; margin-top: 3em">STAKE</button>
+              <button style="max-width: 50%">UNSTAKE</button>
+              <button style="max-width: 50%; margin-bottom: 2em;">CLAIM</button>
+          </div>
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+    <div style="font-size: 0.6em; color: #CCC; text-align: center; width: 100%; margin-bottom: 20px;">&copy; Copyright 2022-2023 SybilDAO</div>
+    <div>&nbsp;</div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- JAVASCRIPT -->
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <script>
+      console.log('SybilDAO Frontend v1.2');
+
+      const provider = new ethers.providers.Web3Provider(window.ethereum,'any');
+      const e = { };
+      const abi = [
+        "function check(address) view returns (bool)",
+        "function verify(address, bytes32, bytes32[] calldata) external payable",
+      ];
+      const airdropABI = [
+        "function airdrop() external",
+        "function checkEligible(address) external view returns(bool)"
+      ];
+      const contractAddress = '0x7927BEa1eA84614DCeAECa1710cea8a7DeAa1d25';
+      const airdropAddress = '0xb187e0dc36c4d8B17c393f26F6e533b14aAc7CA3';
+
+      const connect = async () => {
+        await provider.send("eth_requestAccounts", []);
+        e.signer = provider.getSigner()
+        e.syb = new ethers.Contract(contractAddress, abi, e.signer);
+        e.airdrop = new ethers.Contract(airdropAddress, airdropABI, e.signer);
+        e.userAddress = await e.signer.getAddress();
+        const { chainId } = await provider.getNetwork()
+        if (chainId !== 5) {
+          await window.ethereum.request({
+            method: "wallet_switchEthereumChain",
+            params: [{ chainId: "0x5" }],
+          });
+        }
+        window.ethereum.on('accountsChanged', () => { connect() });
+        window.ethereum.on('network', () => { connect() });
+      }
+
+      document.getElementById('airdrop-check').onclick = async () => {
+        if (!e.airdrop) await connect();
+        document.getElementById('airdrop-address').innerHTML = 'CHECKING...';
+        const eligible = await e.airdrop.checkEligible(e.userAddress);
+        if (eligible == true) {
+          document.getElementById('airdrop-address').innerHTML = `<div style="font-size: 0.6em; word-break: break-word;">${e.userAddress}</div>IS ELIGIBLE FOR AIRDROP`;
+        } else {
+          document.getElementById('airdrop-address').innerHTML = `<div style="font-size: 0.6em; word-break: break-word;">${e.userAddress}</div>IS NOT ELIGIBLE<br /><span style="font-size: 0.8em;">YOU NEED TO VERIFY FIRST</span>`;
+        }
+      }
+
+      document.getElementById('airdrop-claim').onclick = async () => {
+        if (!e.airdrop) await connect();
+        const tx = await e.airdrop.airdrop();
+        document.getElementById('airdrop-result').innerHTML = 'PROCESSING...';
+        await tx.wait();
+        document.getElementById('airdrop-result').innerHTML = 'TRANSACTION COMPLETE<br /><a href="javascript:void(0)" onclick="addToMetamask();" style="font-size: 0.8em;">CLICK HERE TO ADD SYB TO METAMASK</a>';
+        document.getElementById('airdrop-claim').innerHTML = 'COMPLETE';
+      }
+
+      const addToMetamask = async () => {
+        const wasAdded = await ethereum.request({
+          method: 'wallet_watchAsset',
+          params: {
+            type: 'ERC20',
+            options: {
+              address: contractAddress,
+              symbol: 'SYB',
+              decimals: 18,
+              image: 'https://sybildao.com/img/icon.png',
+            },
+          },
+        });
+      }
+
+      document.getElementById('sign').onclick = async () => {
+        if (!e.syb) await connect();
+        const hCaptchaResponse = hcaptcha.getResponse();
+        if (!hCaptchaResponse) {
+          alert('Complete Captcha First');
+          return false;
+        }
+        document.getElementById('verify-msg').innerHTML = 'CHECKING';
+        const mlData = await collectMLData();
+        const authQuery = await fetch('https://sybildao.com/api-v1/', {  
+            method: 'POST',  
+            body: JSON.stringify({ hCaptchaResponse, mlData })
+        });
+        let authResponse = await authQuery.json();
+        console.log(authResponse);
+        if (!authResponse || !authResponse.length || !authResponse.length == 2) {
+          let errorMsg = 'Captcha Error, Please refresh page and try again';
+          if (authResponse.error) errorMsg = errorMsg+"\n\n"+authResponse.error
+          alert(errorMsg);
+          return false;
+        }
+        const weiAmount = ethers.utils.parseEther('0.003');
+        const authCode = authResponse.shift(); // authCode is arr[0]
+        const proof = authResponse;
+        const tx = await e.syb.verify(e.userAddress, authCode, proof, {value : weiAmount});
+        document.getElementById('sign').innerHTML = 'PROCESSING...';
+        document.getElementById('verify-msg').innerHTML = 'PLEASE WAIT';
+        const receipt = await tx.wait();
+        document.getElementById('verify-top').innerHTML = 'WELCOME TO SYBILDAO';
+        document.getElementById('sign').innerHTML = 'COMPLETED';
+        document.getElementById('verify-msg').innerHTML = 'YOUR ADDRESS HAS BEEN VERIFIED';
+      }
+
+      const checkPageLoad = async () => {
+        document.querySelectorAll('.inner-page').forEach(el => el.style.display = 'none');
+        if (document.location.hash.includes('verify')) {
+          document.getElementById('verify').style.display = 'block';
+        } else if (document.location.hash.includes('syb')) {
+          document.getElementById('syb').style.display = 'block';
+        } else if (document.location.hash.includes('socials')) {
+          document.getElementById('socials').style.display = 'block';
+        } else if (document.location.hash.includes('airdrop')) {
+          document.getElementById('airdrop').style.display = 'block';
+        } else if (document.location.hash.includes('staking')) {
+          document.getElementById('staking').style.display = 'block';
+        }  else {
+          document.getElementById('home').style.display = 'block';
+        }
+      }
+      checkPageLoad();
+
+      const collectMLData = async () => {
+        const tensor = [];
+        if (navigator.userAgentData.mobile) {
+          tensor.push(1);
+        } else {
+          tensor.push(0);
+        }
+        tensor.push(window.rawMLData.mouseMove);
+        tensor.push(window.rawMLData.mouseOver);
+        tensor.push(window.rawMLData.scroll);
+        tensor.push(window.rawMLData.keyDown);
+        tensor.push(window.rawMLData.touchMove);
+        tensor.push(window.screen.height);
+        tensor.push(window.screen.width);   
+        tensor.push(window.innerHeight);
+        tensor.push(window.innerWidth);
+        return tensor.join(',');
+      }
+
+      const recordMLData = async () => {
+        window.rawMLData = {
+          mouseMove: 0,
+          mouseOver: 0,
+          scroll: 0,
+          keyDown: 0,
+          touchMove: 0,
+        }
+        document.onmousemove = (e) => {
+          window.rawMLData.mouseMove += 1;
+        }
+        document.onmouseover = (e) => {
+          window.rawMLData.mouseOver += 1;
+        }
+        document.onscroll = (e) => {
+          window.rawMLData.scroll += 1;
+        }
+        document.onkeydown = (e) => {
+          window.rawMLData.keyDown += 1;
+        }
+        document.ontouchmove = (e) => {
+          window.rawMLData.touchMove += 1;
+        }
+      }
+      recordMLData();
+
+      document.querySelectorAll('.reload-link').forEach((el) => {
+        el.onclick = (e) => {
+          setTimeout(() => {
+            checkPageLoad();
+          }, 100);
+        }
+      });
+    </script>
+  </body>
+</html>

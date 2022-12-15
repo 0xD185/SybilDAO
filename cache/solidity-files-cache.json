@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\jackd\\projects\\SybilDAO\\contracts\\examples\\ERC1155example.sol": {
-      "lastModificationDate": 1671113522377,
-      "contentHash": "d9e4b87a0287322ac8b71abc9b455f89",
+      "lastModificationDate": 1671114788367,
+      "contentHash": "65248afc9e76bd114dbc58b91745def8",
       "sourceName": "contracts/examples/ERC1155example.sol",
       "solcConfig": {
         "version": "0.8.17",
