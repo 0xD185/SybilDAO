@@ -15,12 +15,12 @@ contract ERC1155example is ERC1155 {
 
     constructor() ERC1155("") {}
 
-    function mint(address account, uint256 id, uint256 amount, bytes memory data) public {
+    function mint(address account, uint256 amount, bytes memory data) public {
         require(ISybil(sybil).check(msg.sender), "Visit: https://sybildao.com/#verify");
         require(tokenId < 1000, "All 1000 tokens have been minted");
         require(claimed[msg.sender] == false, "Already claimed");
         claimed[msg.sender] = true;
         tokenId = tokenId + 1;
-        _mint(account, id, amount, data);
+        _mint(account, tokenId, amount, data);
     }
 }
