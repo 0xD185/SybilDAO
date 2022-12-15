@@ -16,18 +16,25 @@ interface ISybil {
 contract SybilMintNFT is ERC721 {
     address constant sybil = 0x7927BEa1eA84614DCeAECa1710cea8a7DeAa1d25;
     uint256 public tokenId;
-    mapping (address => bool) public claimed;
+    mapping(address => bool) public claimed;
 
-    constructor() ERC721("A SAFE MINT NFT", "NFT") {
-    }
+    constructor() ERC721("A SAFE MINT NFT", "NFT") {}
 
-    function tokenURI(uint256) override public pure returns (string memory) {
-        string memory json = Base64.encode(bytes(string(abi.encodePacked('{"name": "SybilDAO", "description": "An example NFT from SybilDAO", "image": "https://sybildao.com/img/icon.png"}'))));
-        return string(abi.encodePacked('data:application/json;base64,', json));
+    function tokenURI(uint256) public pure override returns (string memory) {
+        string memory json = Base64.encode(
+            bytes(
+                string(
+                    abi.encodePacked(
+                        '{"name": "SybilDAO", "description": "An example NFT from SybilDAO", "image": "https://sybildao.com/img/icon.png"}'
+                    )
+                )
+            )
+        );
+        return string(abi.encodePacked("data:application/json;base64,", json));
     }
 
     function mint() public {
-        require(ISybil(sybil).check(msg.sender),"Visit: https://sybildao.com/#verify");
+        require(ISybil(sybil).check(msg.sender), "Visit: https://sybildao.com/#verify");
         require(tokenId < 1000, "All 1000 tokens have been minted");
         require(balanceOf(msg.sender) == 0, "You already have an NFT");
         require(claimed[msg.sender] == false, "Already claimed");
