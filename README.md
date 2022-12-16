@@ -1,5 +1,5 @@
 # SybilDAO
-## Zero Knowledge Protocol To Defend DeFi From Sybil Attacks
+## Defending DeFi From Sybil Attacks
 
 Verify your address at https://sybildao.com/#verify
 
@@ -13,7 +13,7 @@ For developers there are some integration examples at:
 https://github.com/0xD185/SybilDAO/tree/main/contracts/examples
 
 - ERC20 Airdrops
-- NFT Mints
+- NFT Mints (ERC721 & ERC1155)
 - Simple Checks
 
 ### Explainer
