@@ -1,4 +1,4 @@
-# SybilDAO
+# ✤ SybilDAO
 ## Defending DeFi From Sybil Attacks
 
 Verify your address at https://sybildao.com/#verify
