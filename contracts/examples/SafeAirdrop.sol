@@ -1,6 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
+/*━━┓     ┏┓    ┏┓ ┏━━━┓┏━━━┓┏━━━┓
+┃┏━┓┃     ┃┃    ┃┃ ┗┓┏┓┃┃┏━┓┃┃┏━┓┃
+┃┗━━┓┏┓ ┏┓┃┗━┓┏┓┃┃  ┃┃┃┃┃┃ ┃┃┃┃ ┃┃
+┗━━┓┃┃┃ ┃┃┃┏┓┃┣┫┃┃  ┃┃┃┃┃┗━┛┃┃┃ ┃┃
+┃┗━┛┃┃┗━┛┃┃┗┛┃┃┃┃┗┓┏┛┗┛┃┃┏━┓┃┃┗━┛┃
+┗━━━┛┗━┓┏┛┗━━┛┗┛┗━┛┗━━━┛┗┛ ┗┛┗━━━┛
+━━━━ ┏━┛┃ ━━━━ SybilDAO.com ━━━━━━
+━━━━ ┗━━┛ ━━━━ Version: 0.2 ━━━━*/
+
 /*
     SafeAirdrop - An ERC20 token which lets verified users
     claim 100 tokens each one time
