@@ -12,9 +12,15 @@ Main Contract Address: [0x7927BEa1eA84614DCeAECa1710cea8a7DeAa1d25](https://goer
 For developers there are some integration examples at:
 https://github.com/0xD185/SybilDAO/tree/main/contracts/examples
 
-- ERC20 Airdrops
-- NFT Mints (ERC721 & ERC1155)
-- Simple Checks
+ERC1155example.sol
+Lottery.sol
+Modifier.sol
+SafeAirdrop.sol
+SimpleSybilCheck.sol
+SybAirdrop.sol
+SybilMintNFT.sol
+
+Please note examples have not been security audited by a 3rd party auditor
 
 ### Explainer
 
